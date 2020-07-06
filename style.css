@@ -45,19 +45,19 @@ body {
     color: #00C896;
 }
 
-form {
+#book-form {
     position: relative;
     overflow: hidden;
 }
 
-form .text {
+#book-form .text {
     position: relative;
     width: 100%;
     height: 100%;
     padding-top: 1em;
 }
 
-form input, form textarea {
+#book-form input, #book-form textarea {
     width: 100%;
     height: 100%;
     padding-top: 30px;
@@ -67,7 +67,7 @@ form input, form textarea {
     background-color: #FAF8FF;
 }
 
-form label {
+#book-form label {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -77,7 +77,7 @@ form label {
     border-bottom: 1.3px solid #768088;
 }
 
-form label::after {
+#book-form label::after {
     content: '';
     position: absolute;
     height: 100%;
@@ -89,7 +89,7 @@ form label::after {
     transition: transform 0.3s ease;
 }
 
-.contentName {
+#book-form .contentName {
     position: absolute;
     bottom: 5px;
     left: 0;
@@ -98,19 +98,19 @@ form label::after {
     color: #768088;
 }
 
-form input:focus+.labelName .contentName, 
-form input:valid+.labelName .contentName {
+#book-form input:focus+.labelName .contentName, 
+#book-form input:valid+.labelName .contentName {
     transform: translateY(-150%);
     font-size: 14px;
     color: #00C896;
 }
 
-form input:focus+.labelName::after,
- form input:valid+.labelName::after {
+#book-form input:focus+.labelName::after,
+#book-form input:valid+.labelName::after {
     transform: translateX(0%);
 }
 
-form .dateSpan{
+#book-form .dateSpan{
     font-size: 0.7em;
     opacity: 0.8;
     letter-spacing: 2px;
@@ -118,7 +118,7 @@ form .dateSpan{
 
 /* Textarea */
 
-.text textarea {
+#book-form .text textarea {
     max-width: 100%;
     min-width: 100%;
     height: 200px;
@@ -128,31 +128,31 @@ form .dateSpan{
     position: relative;
 }
 
-.message .labelName .contentName {
+#book-form .message .labelName .contentName {
     top: 40px;
 }
 
-.text textarea:focus~.labelName .contentName,
- .text textarea:valid~.labelName .contentName {
+#book-form .text textarea:focus~.labelName .contentName,
+#book-form .text textarea:valid~.labelName .contentName {
     transform: translateY(-20px);
     font-size: 14px;
     color: #00C896;
 }
 
-.text textarea:focus~.labelName::after, 
-.text textarea:valid~.labelName::after {
+#book-form .text textarea:focus~.labelName::after, 
+#book-form .text textarea:valid~.labelName::after {
     transform: translateX(0%);
 }
 
 /* Button */
 
-.btn {
+#book-form .btn {
     width: 100%;
     text-align: center;
     padding-top: 2em;
 }
 
-.btn .button {
+#book-form .btn .button {
     padding: 1.2em 2.5em;
     color: #333333;
     border: none;
@@ -162,7 +162,7 @@ form .dateSpan{
     background-image: radial-gradient(circle, #00c896, #66cd9b, #91d1a5, #b1d5b4, #cbdac7);
 }
 
-.btn .button:focus {
+#book-form .btn .button:focus {
     outline: none;
 }
 
@@ -194,6 +194,7 @@ form .dateSpan{
     overflow: hidden;
     display: block;
     word-wrap: break-word;
+    padding-top: 4em;
 }
 .book-list .book{
     color: #333333;
@@ -203,7 +204,7 @@ form .dateSpan{
 }
 
 .book-list .book .profile-box {
-    margin-top: 10em;
+    margin-top:5em;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -254,6 +255,7 @@ form .dateSpan{
     font-weight: 600;
     letter-spacing: normal;
     opacity: 1;
+    display: block;
 }
 
 .book-list .book .date {
@@ -282,12 +284,18 @@ form .dateSpan{
     letter-spacing: 5px;
     font-weight: 400;
     grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-end: 4;
     display: flex;
     justify-content: center;
     align-self: center;
     padding-top: 3em;
     opacity: 0.8;
+}
+@media(min-width:650px){
+    .book-list .book .date p {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
 }
 
 .book-list .book .description { 
@@ -389,6 +397,8 @@ form .dateSpan{
 } 
 
 
+
+/* Alert */
 .aler{
     
     letter-spacing: 3px;
@@ -400,19 +410,105 @@ form .dateSpan{
     color: #00C896;
 }
 
-.delete{
-    color: #FF5159;
+
+/* Search From */
+
+.searchForm{
+    margin-top: 5em;
+    position: relative;
 }
 
-#date{
-    opacity: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: opacity 0.4s ease;
+.searchForm #search{
+    position: absolute;
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid #00C896;
+    padding: 5px;
+    right: 0;
+    z-index: 98;
 }
-#date:focus, #date:valid {
-    opacity: 1;
-    background-color: #FAF8FF;
+
+
+ .searchForm #search input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    z-index: 99;
+
+} 
+
+.searchForm #search i{
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00C896;
 }
+
+
+
+#search:hover{
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#search:hover input{
+    display: block;
+}
+
+
+
+
+#search:hover .fa{
+    color: #00C896;
+    background-color: white;
+}
+
+
+#search.active{
+    width: 100%;
+}
+.fa-search.active{
+    color: #00C896 !important;
+    background-color: white !important;
+}
+
+@media(min-width:740px){
+    #search:hover{
+        width: 60%;
+    }
+    #search.active{
+        width: 60%;
+    }
+}
+
+
+
+   
+
 
 
 

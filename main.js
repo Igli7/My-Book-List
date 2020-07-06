@@ -255,5 +255,29 @@ setInputFilter(document.getElementById('isbn'), function (value) {
     return /^\d*$/.test(value);
 });
 
-//Author
 
+
+
+// Search Bar UI Design
+const searchForm = document.querySelector('#search');
+const searchInput = document.querySelector('.searchInput');
+const searchIcon = document.querySelector('.fa-search');
+
+searchIcon.addEventListener('blur', function(){
+    console.log(searchIcon.value);
+})
+
+
+
+
+searchInput.addEventListener('focus', function(){
+    searchForm.className = "active";
+    searchIcon.classList = 'fa fa-search active';
+    searchInput.style.display = 'block';
+});
+
+searchInput.addEventListener('blur', function(){
+    if(searchInput.value.length == 0){
+        searchForm.classList = "";
+    }
+});
