@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fc6acf4647.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="bookForm">
+        <div class="form">
+            <h1> <i class="fas fa-book-open"></i> My<span>Book </span> List</h1>
+
+            <form action="" id="book-form">
+                <div class="text">
+                    <input type="text" name="title" autocomplete="off" id="title" required>
+                    <label for="title" class="labelName">
+                        <span class="contentName">Title</span>
+                    </label>
+                </div>
+                <div class="text">
+                    <input type="text" name="author" id="author" autocomplete="off" required>
+                    <label for="author" class="labelName">
+                        <span class="contentName">Author</span>
+                    </label>
+                </div>
+                <div class="text">
+                    <input type="tel" maxlength="13"  name="isbn" id="isbn" autocomplete="off" required>
+                    <label for="isbn" class="labelName">
+                        <span class="contentName">ISBN <span class="dateSpan">(13-digit #)</span></span>
+                    </label>
+                </div>
+                <div class="text">
+                    <input type="text" name="date" id="date" required autocomplete="off">
+                    <label for="date" class="labelName">
+                        <span class="contentName">Date <span class="dateSpan">(MM/DD/YYYY)</span></span>
+                    </label>
+                </div>
+                <div class="text message">
+                    <textarea type="text" name="message" id="description" autocomplete="off" required></textarea>
+                    <label for="message" class="labelName">
+                        <span class="contentName">Description...</span>
+                    </label>
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Add Book" class="button"></input>
+                </div>
+            </form>
+
+            <div class="book-list">
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

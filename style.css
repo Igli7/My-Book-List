@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#bookForm {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #FAF8FF;
+    overflow-x: hidden;
+}
+
+.form {
+    width: 95%;
+    position: relative;
+    background-color: white;
+    position: relative;
+    z-index: 99;
+    border-radius: 20px;
+    padding: 3em 2em;
+    background-color: #FAF8FF;
+}
+
+.form h1 {
+    font-size: 2.5em;
+    color: #333333;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.form h1 span {
+    font-family: 'Yellowtail', cursive;
+    color: #00C896;
+}
+
+.form h1 i {
+    color: #00C896;
+}
+
+form {
+    position: relative;
+    overflow: hidden;
+}
+
+form .text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 1em;
+}
+
+form input, form textarea {
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    border: none;
+    outline: none;
+    position: relative;
+    background-color: #FAF8FF;
+}
+
+form label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1.3px solid #768088;
+}
+
+form label::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1.5px solid #00C896;
+    bottom: -1.5px;
+    left: 0;
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+
+.contentName {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #768088;
+}
+
+form input:focus+.labelName .contentName, 
+form input:valid+.labelName .contentName {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #00C896;
+}
+
+form input:focus+.labelName::after,
+ form input:valid+.labelName::after {
+    transform: translateX(0%);
+}
+
+form .dateSpan{
+    font-size: 0.7em;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
+/* Textarea */
+
+.text textarea {
+    max-width: 100%;
+    min-width: 100%;
+    height: 200px;
+    min-height: 50px;
+    max-height: 200px;
+    padding-top: 30px;
+    position: relative;
+}
+
+.message .labelName .contentName {
+    top: 40px;
+}
+
+.text textarea:focus~.labelName .contentName,
+ .text textarea:valid~.labelName .contentName {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #00C896;
+}
+
+.text textarea:focus~.labelName::after, 
+.text textarea:valid~.labelName::after {
+    transform: translateX(0%);
+}
+
+/* Button */
+
+.btn {
+    width: 100%;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.btn .button {
+    padding: 1.2em 2.5em;
+    color: #333333;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    background-image: radial-gradient(circle, #00c896, #66cd9b, #91d1a5, #b1d5b4, #cbdac7);
+}
+
+.btn .button:focus {
+    outline: none;
+}
+
+
+/* Media Queries */
+
+@media(min-width:740px) {
+    .form {
+        padding: 3em;
+    }
+    .form h1 {
+        font-size: 2.8em;
+    }
+}
+
+@media(min-width:840px) {
+    .form {
+        width: 798px;
+    }
+    .form h1 {
+        font-size: 3em;
+    }
+}
+
+/* Book List */
+
+.book-list{
+    position: relative;
+    overflow: hidden;
+    display: block;
+    word-wrap: break-word;
+}
+.book-list .book{
+    color: #333333;
+    position: relative;
+    margin-bottom: 2em;
+    word-wrap: break-word;
+}
+
+.book-list .book .profile-box {
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: 2px solid #00C896;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    word-wrap: break-word;
+}
+
+.book-list .book .profile-box h2 {
+    transform: translateY(-1.55em);
+    background-color: #FAF8FF;
+    width: 75%;
+    margin: auto;
+    height: auto;
+    color: #333333;
+    text-align: center;
+    font-size: 2em;
+    padding: 1em 0.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+}
+
+.book-list .book .author, .isbn {
+    text-align: center;
+    width: 85%;
+    margin: auto;
+}
+
+.book-list .book .author h3, .isbn h3 {
+    padding-top: 1em;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    padding-bottom: 2.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.book-list .book .isbn h3 {
+    padding-top: 2em;
+}
+
+.book-list .book .author .authorName, .isbn .isbnName {
+    padding-top: 0.5em;
+    font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: normal;
+    opacity: 1;
+}
+
+.book-list .book .date {
+    text-align: left;
+    margin: auto;
+    width: 85%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.book-list .book .date h3 {
+    display: inline-block;
+    padding-top: 2em;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+}
+
+.book-list .book .date p {
+    font-size: 0.8em;
+    display: inline-block;
+    letter-spacing: 5px;
+    font-weight: 400;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding-top: 3em;
+    opacity: 0.8;
+}
+
+.book-list .book .description { 
+    text-align: center;
+    margin: auto;
+    width: 85%;
+    padding-top: 2em;
+}
+
+.book-list .book .description h3{
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    padding-bottom: 2em;
+}
+
+.book-list .book .description p{
+    text-align: left;
+    line-height: 30px;
+    padding-bottom: 2em;
+}
+
+/* Remove Button */
+
+.book-list .book .remove{
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 10px;
+    color: #FF5159;
+    font-size: 1.2em;
+    width: 25px;
+    height: 25px;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.book-list .book .remove:hover{
+    background-color: #FF5159;
+    color: white;
+}
+
+ .question{
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #FFCC00;
+    cursor: pointer;    
+    transition: all .3s ease;
+    z-index: 99999;
+}
+
+.question .wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.question .wrap .mark{
+    position: absolute;
+    border-radius: 5px;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 22px solid transparent;
+    top: 0px;
+    left: -2px;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.question .wrap .mark::after{
+    content: "!";
+    position: absolute;
+    font-size: 16px;
+    color: #FFCC00;
+    top: 3.5px;
+    left: -2.5px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+
+
+.question:hover{
+    background-color: transparent !important; 
+}
+.question:hover .mark{
+    border-bottom-color:#FFCC00;
+}
+
+.question:hover .mark::after{
+    color: white;
+} 
+
+
+.aler{
+    
+    letter-spacing: 3px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.added{
+    color: #00C896;
+}
+
+.delete{
+    color: #FF5159;
+}
+
+#date{
+    opacity: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: opacity 0.4s ease;
+}
+#date:focus, #date:valid {
+    opacity: 1;
+    background-color: #FAF8FF;
+}
+
+
+
+
