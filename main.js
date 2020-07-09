@@ -27,7 +27,7 @@ class UI {
 
         addBook.innerHTML = `
         <div class="profile-box">
-        <h2>${book.title}</h2>
+        <h2 class="searchable" >${book.title}</h2>
 
         <div class="author">
             <h3>Author:
@@ -149,7 +149,12 @@ document.querySelector('#bookForm').addEventListener('submit', (e) => {
     const date = document.querySelector('#date').value;
     const description = document.querySelector('#description').value;
 
-    //Instatiate Book
+
+    //validate
+    if(title === '' || author === '' || isbn === '' || date === '' || description === ''){
+
+    }else{
+        //Instatiate Book
 
     const book = new Book(title, author, isbn, date, description);
 
@@ -166,6 +171,10 @@ document.querySelector('#bookForm').addEventListener('submit', (e) => {
 
     //Clear Fields 
     UI.clearFields();
+    }
+
+    //Instatiate Book
+
 
 
 
@@ -263,8 +272,10 @@ const searchForm = document.querySelector('#search');
 const searchInput = document.querySelector('.searchInput');
 const searchIcon = document.querySelector('.fa-search');
 
-searchIcon.addEventListener('blur', function(){
-    console.log(searchIcon.value);
+searchIcon.addEventListener('click', function(){
+    searchForm.className = "active";
+    searchIcon.classList = 'fa fa-search active';
+    searchInput.style.display = 'block';
 })
 
 
@@ -279,5 +290,33 @@ searchInput.addEventListener('focus', function(){
 searchInput.addEventListener('blur', function(){
     if(searchInput.value.length == 0){
         searchForm.classList = "";
+    }else{
+        searchForm.className = "active";
+    searchIcon.classList = 'fa fa-search active';
+    searchInput.style.display = 'block';
     }
 });
+
+//Search Bar funcionality
+
+searchInput.addEventListener('keyup', filterNames);
+
+function filterNames(){
+    //Get value of input
+    let filterValue = document.querySelector('.searchInput').value.toUpperCase();
+
+    //Get Names
+    let book = document.querySelector('.book-list');
+    let names = book.querySelectorAll('.searchable');
+
+    //Loop through elements w/ searchable class
+    for(let i =0; i<names.length; i++){
+        let text = names[i];
+        console.log(text.parentElement);
+        if(text.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+            names[i].parentElement.style.display = '';
+        }else{
+            names[i].parentElement.style.display = 'none';
+        }
+    }
+}
